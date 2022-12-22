@@ -133,3 +133,47 @@ let userActivity = {
    función y devolver la cantidad de usuarios cuya onlinepropiedad está establecida en true. 
    A continuación se muestra un ejemplo de un objeto de usuarios al que se podría pasar countOnline. 
    Cada usuario tendrá una onlinepropiedad con un valor trueo false*/
+
+  
+  function countOnline(usersObj) {
+    // Only change code below this line
+    let contador = 0;
+    for (let user in usersObj) {
+      if (usersObj[user].online === true) {
+        contador++
+      }
+    }
+    return contador;
+    // Only change code above this line
+  }
+
+   /* -------------------------------------------------------------- */
+
+   /* Termina de escribir la getArrayOfUsersfunción para que devuelva una matriz que contenga 
+   todas las propiedades del objeto que recibe como argumento.*/
+
+   function getArrayOfUsers(obj) {
+    // Only change code below this line
+    return Object.keys(obj)
+    // Only change code above this line
+  }
+  
+  console.log(getArrayOfUsers(users));
+
+  /* -------------------------------------------------------------- */
+
+   /* El userobjeto contiene tres llaves. La dataclave contiene cinco claves, 
+   una de las cuales contiene una matriz de friends. A partir de esto, puede ver cuán flexibles 
+   son los objetos como estructuras de datos. Hemos comenzado a escribir una función addFriend. 
+   Termine de escribirlo para que tome un userobjeto y agregue el nombre del friendargumento a la 
+   matriz almacenada user.data.friendsy devuelva esa matriz.*/
+
+   function addFriend(userObj, friend) {
+    // Only change code below this line
+      userObj.data.friends.push(friend);
+      return userObj.data.friends;
+      
+    // Only change code above this line
+  }
+  
+  console.log(addFriend(user, 'Pete'));
