@@ -89,3 +89,27 @@ function largestOfFour(arr) {
 
 /* Compruebe si una cadena (primer argumento, str) termina con la cadena de 
 destino dada (segundo argumento, target). */
+
+function confirmEnding(str, target) {
+    return str.slice(-target.length) === target
+  }
+  
+  confirmEnding("Bastian", "n");
+
+  
+      /* -------------------------------------------------------------- */
+
+/* Compruebe si una cadena (primer argumento, str) termina con la cadena de 
+destino dada (segundo argumento, target). */
+
+function repeatStringNumTimes(str, num) {
+    let accumulatedStr = "";
+  
+    for (let i = 0; i < num; i++) {
+      accumulatedStr += str;
+    }
+  
+    return accumulatedStr;
+  }
+  
+  repeatStringNumTimes("abc", 3);
