@@ -113,3 +113,25 @@ function repeatStringNumTimes(str, num) {
   }
   
   repeatStringNumTimes("abc", 3);
+
+/* -------------------------------------------------------------- */
+
+ /* Trunca una cadena (primer argumento) si es más larga que la longitud máxima de cadena dada (segundo argumento). 
+  Devuelve la cadena truncada con un ...final. */
+
+  function truncateString(str, num) {
+    // Clear out that junk in your trunk
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
+  
+  truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+  /* -------------------------------------------------------------- */
+
+   /* Cree una función que mire a través de una matriz arry devuelva el primer elemento que 
+   pase una 'prueba de verdad'. Esto significa que dado un elemento x, la 'prueba de verdad' 
+   se pasa si func(x)es true. Si ningún elemento pasa la prueba, devuelve undefined. */
