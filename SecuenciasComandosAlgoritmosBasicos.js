@@ -135,3 +135,56 @@ function repeatStringNumTimes(str, num) {
    /* Cree una función que mire a través de una matriz arry devuelva el primer elemento que 
    pase una 'prueba de verdad'. Esto significa que dado un elemento x, la 'prueba de verdad' 
    se pasa si func(x)es true. Si ningún elemento pasa la prueba, devuelve undefined. */
+
+   function findElement(arr, func) {
+    let num = 0;
+  
+    for (let i = 0; i < arr.length; i++) {
+      num = arr[i];
+      if (func(num)) {
+        return num;
+      }
+    }
+  
+    return undefined;
+  }
+
+  // También puedo usar directamente el método find
+  // return arr.find(func)
+  
+  findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+  /* -------------------------------------------------------------- */
+
+   /* Comprueba si un valor se clasifica como un primitivo booleano. Regresar trueo false.
+Las primitivas booleanas son truey false. */
+
+const  booWho = bool => bool === true || bool === false;
+  
+  
+  booWho(null);
+
+  
+  /* -------------------------------------------------------------- */
+
+   /* Devuelve la cadena proporcionada con la primera letra de cada palabra en mayúscula. 
+   Asegúrate de que el resto de la palabra esté en minúsculas. A los efectos de este ejercicio, 
+   también debe escribir en mayúsculas las palabras de conexión como they of. */
+
+   function titleCase(str) {
+    return str
+      .toLowerCase() // Pasamos a minuscula
+      .split(" ") // Separamos el Array 
+      .map(val => val.replace(val.charAt(0), val.charAt(0).toUpperCase())) // Reemplazamos la primera letra por mayuscula
+      .join(" "); // volvemos a unir la cadena
+  }
+  
+  titleCase("I'm a little tea pot");
+
+  /* -------------------------------------------------------------- */
+
+   /* Se le dan dos matrices y un índice.
+Copie cada elemento de la primera matriz en la segunda matriz, en orden.
+Comience a insertar elementos en el índice nde la segunda matriz.
+Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
+después de que se ejecute la función. */
