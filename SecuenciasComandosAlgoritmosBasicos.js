@@ -188,3 +188,19 @@ Copie cada elemento de la primera matriz en la segunda matriz, en orden.
 Comience a insertar elementos en el índice nde la segunda matriz.
 Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
 después de que se ejecute la función. */
+
+  /* -------------------------------------------------------------- */
+
+   /* Se le dan dos matrices y un índice.
+Copie cada elemento de la primera matriz en la segunda matriz, en orden.
+Comience a insertar elementos en el índice nde la segunda matriz.
+Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
+después de que se ejecute la función. */
+
+  /* -------------------------------------------------------------- */
+
+   /* Se le dan dos matrices y un índice.
+Copie cada elemento de la primera matriz en la segunda matriz, en orden.
+Comience a insertar elementos en el índice nde la segunda matriz.
+Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
+después de que se ejecute la función. */
