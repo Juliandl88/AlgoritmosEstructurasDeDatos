@@ -189,18 +189,75 @@ Comience a insertar elementos en el índice nde la segunda matriz.
 Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
 después de que se ejecute la función. */
 
+function frankenSplice(arr1, arr2, n) {
+    // It's alive. It's alive!
+    let localArray = arr2.slice();
+    for (let i = 0; i < arr1.length; i++) {
+      localArray.splice(n, 0, arr1[i]);
+      n++;
+    }
+    return localArray;
+  }
+  
+  frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
   /* -------------------------------------------------------------- */
 
-   /* Se le dan dos matrices y un índice.
-Copie cada elemento de la primera matriz en la segunda matriz, en orden.
-Comience a insertar elementos en el índice nde la segunda matriz.
-Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
-después de que se ejecute la función. */
+/* Elimina todos los valores falsos de una matriz. 
+Devuelve una nueva matriz; no cambie la matriz original.
+Los valores falsos en JavaScript son false, null, 0, "", undefinedy NaN.
+Sugerencia: Intente convertir cada valor a un valor booleano. */
+
+function bouncer(arr) {
+    return arr.filter(Boolean); // filtramos los valores boolean
+  }
+  
+  
+  bouncer([7, "ate", "", false, 9]);
 
   /* -------------------------------------------------------------- */
 
-   /* Se le dan dos matrices y un índice.
-Copie cada elemento de la primera matriz en la segunda matriz, en orden.
-Comience a insertar elementos en el índice nde la segunda matriz.
-Devuelve la matriz resultante. Las matrices de entrada deben permanecer iguales 
-después de que se ejecute la función. */
+ /* Devuelve el índice más bajo en el que se debe insertar un valor (segundo argumento) 
+en una matriz (primer argumento) una vez que se ha ordenado. El valor devuelto debe ser un número.
+Por ejemplo, getIndexToIns([1,2,3,4], 1.5)debería regresar 1porque es mayor que 1(índice 0), 
+pero menor que 2(índice 1). */
+
+function getIndexToIns(arr, num) {
+    return arr
+      .concat(num)
+      .sort((a, b) => a - b)
+      .indexOf(num);
+  }
+  
+  getIndexToIns([40, 60], 50);
+
+   /* -------------------------------------------------------------- */
+
+ /* Retorna true si la cadena en el primer elemento de la matriz contiene todas las letras 
+ de la cadena en el segundo elemento de la matriz. */
+
+ function mutation(arr) {
+    const test = arr[1].toLowerCase();
+    const target = arr[0].toLowerCase();
+    for (let i = 0; i < test.length; i++) {
+      if (target.indexOf(test[i]) < 0) return false;
+    }
+    return true;
+  }
+  mutation(["hello", "hey"]);
+
+ /* -------------------------------------------------------------- */
+
+ /* Escriba una función que divida una matriz (primer argumento) en grupos de 
+ la longitud de size(segundo argumento) y los devuelva como una matriz bidimensional. */
+
+ function chunkArrayInGroups(arr, size) {
+    // Break it up.
+    const newArr = [];
+    for (let i = 0; i < arr.length; i += size) {
+      newArr.push(arr.slice(i, i + size));
+    }
+    return newArr;
+  }
+  
+  chunkArrayInGroups(["a", "b", "c", "d"], 2);
