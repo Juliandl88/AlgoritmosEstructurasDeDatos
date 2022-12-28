@@ -67,14 +67,14 @@ let dog = {
  /* Usa el Dogconstructor de la última lección para crear una nueva instancia de Dog, 
  asignándola a una variable hound. */
 
- function Dog() {
+ function Dog6() {
     this.name = "Rupert";
     this.color = "brown";
     this.numLegs = 4;
   }
   // Only change code below this line
   
-  let hound = new Dog();
+  let hound = new Dog6();
 
   /* -------------------------------------------------------------- */
 
