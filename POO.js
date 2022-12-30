@@ -56,7 +56,7 @@ let dog = {
  /* Cree un constructor, Dog, con propiedades name, colory numLegsque se establezcan en una cadena, 
  una cadena y un número, respectivamente. */
 
- function Dog(){
+ function Dog5(){
     this.name = "Matilda";
     this.color = "Atigrado";
     this.numLegs = 3;
@@ -78,26 +78,54 @@ let dog = {
 
   /* -------------------------------------------------------------- */
 
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+ /* Create another Dog constructor. This time, set it up to take the parameters name and color, 
+ and have the property numLegs fixed at 4. Then create a new Dog saved in a variable terrier. 
+ Pass it two strings as arguments for the name and color properties. */
 
- function Dog6() {
-    this.name = "Rupert";
-    this.color = "brown";
+ function Dog7(name, color) {
+    this.name = name;
+    this.color = color;
     this.numLegs = 4;
+  
   }
+  
+  let terrier = new Dog7("Rodolfo", "Black");
+ 
+ 
+   /* -------------------------------------------------------------- */
+
+ /* Create a new instance of the House constructor, calling it myHouse and passing a number of bedrooms. 
+ Then, use instanceof to verify that it is an instance of House. */
+
+ function House(numBedrooms) {
+    this.numBedrooms = numBedrooms;
+  }
+  
   // Only change code below this line
   
-  let hound = new Dog6();
-
-  /// BORRAR ESTE ULTIMO
-
-   /* -------------------------------------------------------------- */
-
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+  let myHouse = new House(4);
+  
+  myHouse instanceof House;
 
    /* -------------------------------------------------------------- */
 
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+ /* Add the own properties of canary to the array ownProps. */
+
+ function Bird(name) {
+    this.name = name;
+    this.numLegs = 2;
+  }
+  
+  let canary = new Bird("Tweety");
+  let ownProps = [];
+  
+  // Only change code below this line
+  
+  for (let property in canary){
+    if(canary.hasOwnProperty(property)){
+      ownProps.push(property);
+    }
+  }
 
    /* -------------------------------------------------------------- */
 
