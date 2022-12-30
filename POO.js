@@ -80,6 +80,17 @@ let dog = {
 
  /* Imprime ambas propiedades del dogobjeto en tu consola. */
 
+ function Dog6() {
+    this.name = "Rupert";
+    this.color = "brown";
+    this.numLegs = 4;
+  }
+  // Only change code below this line
+  
+  let hound = new Dog6();
+
+  /// BORRAR ESTE ULTIMO
+
    /* -------------------------------------------------------------- */
 
  /* Imprime ambas propiedades del dogobjeto en tu consola. */
