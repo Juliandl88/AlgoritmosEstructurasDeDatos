@@ -129,12 +129,131 @@ let dog = {
 
    /* -------------------------------------------------------------- */
 
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+ /* Añadir una numLegspropiedad a la prototypedeDog  */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  // Only change code above this line
+  let beagle = new Dog("Snoopy");
+  
+  Dog.prototype.numLegs = 2;
 
    /* -------------------------------------------------------------- */
 
+ /* Agregue todas las propiedades propias de beaglea la matriz ownProps. 
+ Agregue todas las prototypepropiedades de Doga la matriz prototypeProps. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  Dog.prototype.numLegs = 4;9
+  
+  //let beagle = new Dog("Snoopy");
+  //let ownProps = [];
+  let prototypeProps = [];
+  
+  // Only change code below this line
+  
+  for (let property in beagle) {
+    if(beagle.hasOwnProperty(property)) {
+      ownProps.push(property);
+    } else {
+      prototypeProps.push(property);
+    }
+  }
+
+/* -------------------------------------------------------------- */
+
+ /* Escriba una joinDogFraternityfunción que tome un candidateparámetro y, usando la constructorpropiedad, 
+ devuelva truesi el candidato es un Dog, de lo contrario devuelva false. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  // Only change code below this line
+  function joinDogFraternity(candidate) {
+  if (candidate.constructor === Dog) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+ /* -------------------------------------------------------------- */
+
+ /* Agregue la propiedad numLegsy los dos métodos eat()y describe()al prototypede Dogconfigurando 
+ el prototypeen un nuevo objeto. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  Dog.prototype = {
+    // Only change code below this line
+   numLegs: 2, 
+    eat: function() {
+      console.log("nom nom nom");
+    },
+    describe: function() {
+      console.log("My name is " + this.name);
+    }
+  };
+
+ /* -------------------------------------------------------------- */
+
+ /* Defina la constructorpropiedad en el Dog prototype. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  // Only change code below this line
+  Dog.prototype = {
+    constructor: Dog,
+    numLegs: 4,
+    eat: function() {
+      console.log("nom nom nom");
+    },
+    describe: function() {
+      console.log("My name is " + this.name);
+    }
+  };
+
+ /* -------------------------------------------------------------- */
+
+ /* Use isPrototypeOf to check the prototype of beagle. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  let beagle2 = new Dog("Snoopy");
+  
+  Dog.prototype.isPrototypeOf(beagle2);
+
+ /* -------------------------------------------------------------- */
+
+ /* Modifique el código para mostrar la cadena de prototipo correcta. */
+
+ function Dog(name) {
+    this.name = name;
+  }
+  
+  let beagle3 = new Dog("Snoopy");
+  
+  Dog.prototype.isPrototypeOf(beagle3);  // yields true
+  
+  // Fix the code below so that it evaluates to true
+  Object.prototype.isPrototypeOf(Dog.prototype);
+
+ /* -------------------------------------------------------------- */
+
  /* Imprime ambas propiedades del dogobjeto en tu consola. */
 
-   /* -------------------------------------------------------------- */
+ /* -------------------------------------------------------------- */
 
  /* Imprime ambas propiedades del dogobjeto en tu consola. */
