@@ -252,8 +252,216 @@ let dog = {
 
  /* -------------------------------------------------------------- */
 
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+ /* El eatmétodo se repite en ambos Caty Bear. 
+ Edite el código con el espíritu de DRY moviendo el eatmétodo al archivo Animal supertype. */
+
+ function Cat(name) {
+    this.name = name;
+  }
+  
+  Cat.prototype = {
+    constructor: Cat,
+  };
+  
+  function Bear(name) {
+    this.name = name;
+  }
+  
+  Bear.prototype = {
+    constructor: Bear,
+    
+  };
+  
+  function Animal() { }
+  
+  Animal.prototype = {
+    constructor: Animal,
+    eat: function() {
+      console.log("nom nom nom");
+    }
+  };
 
  /* -------------------------------------------------------------- */
 
- /* Imprime ambas propiedades del dogobjeto en tu consola. */
+ /* Úselo Object.createpara crear dos instancias de Animalnamed duck y beagle. */
+
+ function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+// Only change code below this line
+
+let duck = Object.create(Animal.prototype);; // Change this line
+let beagle4 = Object.create(Animal.prototype);; // Change this line
+
+ /* -------------------------------------------------------------- */
+
+ /* Modifique el código para que las instancias de Doghereden de Animal. */
+
+ function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle5 = new Dog();
+
+ /* -------------------------------------------------------------- */
+
+ /* Corrija el código duck.constructory beagle.constructor
+ devuelva sus respectivos constructores. */
+
+ function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+// Only change code below this line
+
+let duck2 = new Bird();
+Bird.prototype.constructor = Bird;
+duck.constructor
+let beagle6 = new Dog();
+Dog.prototype.constructor = Dog;
+beagle.constructor
+
+ /* -------------------------------------------------------------- */
+
+ /* Agregue todo el código necesario para que el Dog objeto se herede de Animal y el Dogc onstructor 
+ prototypese establezca en Dog. 
+ Luego agregue un bark() método al Dog objeto para que beagle pueda tanto eat()como bark(). 
+ El bark()método debe imprimirse Woof!en la consola. */
+
+ function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+// Only change code below this line
+// Hacemos que Dog herede de Animal
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+//Agregamos los métodos Bark y Eat
+
+Dog.prototype.bark = function() {
+  console.log("Woof!");
+};
+
+Dog.prototype.eat = function() {
+  console.log("nom nom nom");
+};
+
+// Only change code above this line
+
+let beagle7 = new Dog();
+
+ /* -------------------------------------------------------------- */
+
+ /* Anule el fly()método para Penguinque devuelva la cadena "Alas, this is a flightless bird". */
+
+ function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Only change code below this line
+
+//Modificamos el método fly de Penguin
+Penguin.prototype.fly = function() {
+  return "Alas, this is a flightless bird.";
+};
+
+// Only change code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+ /* -------------------------------------------------------------- */
+
+ /* Cree un mixin llamado glideMixinque defina un método llamado glide. 
+ Luego usa el glideMixinpara dar ambos birdy boatla habilidad de planear. */
+
+ let bird = {
+    name: "Donald",
+    numLegs: 2
+  };
+  
+  let boat = {
+    name: "Warrior",
+    type: "race-boat"
+  };
+  
+  // Only change code below this line
+  
+  let glideMixin = function(obj) {
+    obj.glide = function() {
+      console.log("Gliding, wooosh!");
+    }
+  };
+  
+  glideMixin(bird)
+  glideMixin(boat)
+
+ /* -------------------------------------------------------------- */
+
+ /* Cambia cómo weightse declara en la Birdfunción para que sea una variable privada. 
+ Luego, cree un método getWeightque devuelva el valor de weight a 15. */
+
+ function Bird() {
+    let weight = 15;
+  
+    this.getWeight = function(){
+      return weight
+    }
+  
+  }
+
+ /* -------------------------------------------------------------- */
+
+ /* Vuelva a escribir la función makeNesty elimine su llamada para que sea una expresión de 
+ función anónima inmediatamente invocada (IIFE). */
+
+ (() => console.log("A cozy nest is ready"))();
+
+  /* -------------------------------------------------------------- */
+
+ /* Cree un módulo llamado funModulepara envolver los dos mixins isCuteMixiny singMixin. 
+ funModuledebe devolver un objeto. */
+
+
+let funModule = (function () {
+    return {
+      isCuteMixin: function (obj) {
+        obj.isCute = function () {
+          return true;
+        };
+      },
+      singMixin: function (obj) {
+        obj.sing = function () {
+          console.log("Singing to an awesome tune");
+        };
+      }
+    }
+  })();
+
+  /* -------------------------------------------------------------- */
+
