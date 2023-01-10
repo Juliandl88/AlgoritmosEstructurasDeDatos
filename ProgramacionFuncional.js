@@ -793,7 +793,20 @@ const squareList = arr => {
 
 /* ------------------------------------------------------------- */
 
-/* Prepare 27 cups of green tea and 13 cups of black tea and store them in tea4GreenTeamFCC and  */
+/* Use el sortmétodo en la alphabeticalOrderfunción para ordenar los elementos arren orden alfabético. 
+La función debe devolver la matriz ordenada.  */
+
+function alphabeticalOrder(arr) {
+    // Only change code below this line
+     return arr.sort(function(a, b) {
+      return a === b ? 0 : a > b ? 1 : -1;
+    });
+    
+  
+    // Only change code above this line
+  }
+  
+  alphabeticalOrder(["a", "d", "c", "a", "z", "g"]);
 
 /* ------------------------------------------------------------- */
 
