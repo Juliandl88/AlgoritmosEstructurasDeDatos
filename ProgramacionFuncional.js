@@ -828,17 +828,122 @@ nonMutatingSort(globalArray);
 
 /* ------------------------------------------------------------- */
 
-/* Prepare 27 cups of green tea and 13 cups of black tea and store them in tea4GreenTeamFCC and  */
+/* Use el splitmétodo dentro de la splitifyfunción para dividir stren una matriz de palabras. 
+La función debe devolver la matriz. Tenga en cuenta que las palabras no siempre están separadas por espacios 
+y que la matriz no debe contener signos de puntuación.  */
+
+function splitify(str) {
+  // Only change code below this line
+  let separa = str.split(/\W/)  // ESTA EXPRESIÓN REGULAR Coincide con cualquier carácter que no sea una palabra.
+  return separa;
+
+  // Only change code above this line
+}
+
+splitify("Hello World,I-am code");
 
 /* ------------------------------------------------------------- */
 
-/* Prepare 27 cups of green tea and 13 cups of black tea and store them in tea4GreenTeamFCC and  */
+/* Use el joinmétodo (entre otros) dentro de la sentensifyfunción para hacer una oración a partir 
+de las palabras en la cadena str. La función debe devolver una cadena. 
+Por ejemplo, I-like-Star-Warsse convertiría a I like Star Wars. 
+Para este desafío, no utilice el replacemétodo.  */
+
+function sentensify(str) {
+  // Only change code below this line
+  //Primero separamos todo lo que no sea una cadena
+  //Despues unimos
+  return str.split(/\W/).join(" ");
+  // Only change code above this line
+}
+
+sentensify("May-the-force-be-with-you");
 
 /* ------------------------------------------------------------- */
 
-/* Prepare 27 cups of green tea and 13 cups of black tea and store them in tea4GreenTeamFCC and  */
+/* Fill in the urlSlug function so it converts a string title and returns the hyphenated version for the URL. 
+You can use any of the methods covered in this section, and don't use replace. Here are the requirements:
+
+The input is a string with spaces and title-cased words
+
+The output is a string with the spaces between words replaced by a hyphen (-)
+
+The output should be all lower-cased letters
+
+The output should not have any spaces  */
+
+// the global variable
+var globalTitle = "Winter Is Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  return title
+    .split(" ")
+    .filter(substr => substr !== "")
+    .join("-")
+    .toLowerCase();
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
 
 /* ------------------------------------------------------------- */
+
+/* Use el everymétodo dentro de la checkPositivefunción para verificar si cada elemento arres positivo. 
+La función debe devolver un valor booleano.  */
+
+function checkPositive(arr) {
+  // Only change code below this line
+let result = arr.every(function(currentValue) {
+  return currentValue > 0;
+});
+return result
+
+  // Only change code above this line
+}
+
+console.log(checkPositive([1, 2, 3, -4, 5]));
+
+
+
+/* ------------------------------------------------------------- */
+
+/* Use el somemétodo dentro de la checkPositivefunción para verificar si algún elemento arres positivo. 
+La función debe devolver un valor booleano.  */
+
+function checkPositive(arr) {
+  // Only change code below this line
+let result = arr.some((item)=>item > 0);
+return result
+
+  // Only change code above this line
+}
+
+checkPositive([1, 2, 3, -4, 5]);
+
+/* ------------------------------------------------------------- */
+
+/* Rellene el cuerpo de la addfunción para que use curry para agregar parámetros x, yy z.  */
+
+function add(x) {
+  // Only change code below this line
+  return function (y) {
+    return function (z) {
+      return x+y+z
+    }
+  }
+
+  // Only change code above this line
+}
+
+add(10)(20)(30);
+
+/* ------------------------------------------------------------- */
+
+
+
+
+
 
 
  
