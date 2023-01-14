@@ -39,9 +39,58 @@ function diffArray(arr1, arr2) {
 
 /* Utilice la palabra clave delete para eliminar las claves oranges.*/
 
+function destroyer(arr) {
+  const valsToRemove = Object.values(arguments).slice(1);
+  const filteredArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let removeElement = false;
+    for (let j = 0; j < valsToRemove.length; j++) {
+      if (arr[i] === valsToRemove[j]) {
+        removeElement = true;
+      }
+    }
+    if (!removeElement) {
+      filteredArray.push(arr[i]);
+    }
+  }
+  return filteredArray;
+}
+
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Cree una función que mire a través de una matriz de objetos (primer argumento) y devuelva una matriz de 
+todos los objetos que tienen pares de nombre y valor coincidentes (segundo argumento). 
+Cada par de nombre y valor del objeto de origen debe estar presente en el objeto de la colección 
+si se va a incluir en la matriz devuelta..*/
+
+function whatIsInAName(collection, source) {
+  // "What's in a name? that which we call a rose
+  // By any other name would smell as sweet.”
+  // -- by William Shakespeare, Romeo and Juliet
+  const souceKeys = Object.keys(source);
+
+  // filter the collection
+  return collection.filter(obj => {
+    for (let i = 0; i < souceKeys.length; i++) {
+      if (!obj.hasOwnProperty(souceKeys[i]) ||
+          obj[souceKeys[i]] !== source[souceKeys[i]]) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+// test here
+whatIsInAName(
+  [
+    { first: "Romeo", last: "Montague" },
+    { first: "Mercutio", last: null },
+    { first: "Tybalt", last: "Capulet" }
+  ],
+  { last: "Capulet" }
+);
 
 /* -------------------------------------------------------------- */
 
