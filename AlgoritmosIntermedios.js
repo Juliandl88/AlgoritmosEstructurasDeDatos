@@ -94,19 +94,112 @@ whatIsInAName(
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Convierte una cuerda en una caja espinal. 
+El caso espinal es todo-palabras-en-minúsculas-unidas-por-guiones.*/
+
+function spinalCase(str) {
+  
+  return str
+  .split(/\s|_|(?=[A-Z])/)
+  .join("-")
+  .toLowerCase();
+}
+
+console.log(spinalCase('This Is Spinal Tap'));
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Pig Latin es una forma de alterar palabras en inglés. Las reglas son las siguientes:
+
+- Si una palabra comienza con una consonante, tome la primera consonante o grupo de consonantes, 
+muévala al final de la palabra y añádala ay.
+
+- Si una palabra comienza con una vocal, solo agregue wayal final.*/
+
+function translatePigLatin(str) {
+  let consonantRegex = /^[^aeiou]+/;
+  let myConsonants = str.match(consonantRegex);
+  return myConsonants !== null
+    ? str
+        .replace(consonantRegex, "")
+        .concat(myConsonants)
+        .concat("ay")
+    : str.concat("way");
+}
+
+translatePigLatin("consonant");
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Realice una búsqueda y reemplace en la oración utilizando los argumentos 
+proporcionados y devuelva la nueva oración.
+
+El primer argumento es la oración para realizar la búsqueda y reemplazar.
+
+El segundo argumento es la palabra que reemplazará (antes).
+
+El tercer argumento es con lo que reemplazará el segundo argumento (después).*/
+
+function myReplace(str, before, after) {
+  // Find index where before is on string
+  let index = str.indexOf(before);
+  // Check to see if the first letter is uppercase or not
+  if (str[index] === str[index].toUpperCase()) {
+    // Change the after word to be capitalized before we use it.
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  } else {
+    // Change the after word to be uncapitalized before we use it.
+    after = after.charAt(0).toLowerCase() + after.slice(1);
+  }
+  // Now replace the original str with the edited one.
+  str = str.replace(before, after);
+
+  return str;
+}
+
+// test here
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Los pares de cadenas de ADN consisten en pares de nucleobases. 
+Los pares de bases están representados por los caracteres AT y CG , que forman bloques de 
+construcción de la doble hélice del ADN.
+
+A la hebra de ADN le falta el elemento de emparejamiento. 
+Escribe una función para hacer coincidir los pares de bases que faltan para la hebra de ADN proporcionada. Para cada carácter de la cadena proporcionada, busque el carácter del par base. Devuelve los resultados como una matriz 2d.
+
+Por ejemplo, para la entrada GCG, devuelva[["G", "C"], ["C","G"], ["G", "C"]]
+
+El carácter y su pareja se emparejan en una matriz, y todas las matrices 
+se agrupan en una matriz encapsulante.*/
+
+function pairElement(str) {
+  // Function to match each character with the base pair
+  const matchWithBasePair = function(char) {
+    switch (char) {
+      case "A":
+        return ["A", "T"];
+      case "T":
+        return ["T", "A"];
+      case "C":
+        return ["C", "G"];
+      case "G":
+        return ["G", "C"];
+    }
+  };
+
+  // Find pair for every character in the string
+  const pairs = [];
+  for (let i = 0; i < str.length; i++) {
+    pairs.push(matchWithBasePair(str[i]));
+  }
+
+  return pairs;
+}
+
+// test here
+pairElement("GCG");
 
 /* -------------------------------------------------------------- */
 
