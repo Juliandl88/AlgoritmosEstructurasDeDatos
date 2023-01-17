@@ -203,6 +203,50 @@ pairElement("GCG");
 
 /* -------------------------------------------------------------- */
 
+/* Encuentre la letra que falta en el rango de letras aprobadas y devuélvala.
+
+Si todas las letras están presentes en el rango, devuelve undefined.*/
+
+function fearNotLetter(str) {
+  for (let i = 1; i < str.length; ++i) {
+    if (str.charCodeAt(i) - str.charCodeAt(i - 1) > 1) {
+      return String.fromCharCode(str.charCodeAt(i - 1) + 1);
+    }
+  }
+}
+
+/* -------------------------------------------------------------- */
+
+/* Escriba una función que tome dos o más matrices y devuelva una nueva matriz de valores únicos en el orden de las matrices proporcionadas originalmente.
+
+En otras palabras, todos los valores presentes de todas las matrices deben incluirse en su orden original, pero sin duplicados en la matriz final.
+
+Los números únicos deben clasificarse según su orden original, pero la matriz final no debe clasificarse en orden numérico.
+
+Consulte las pruebas de aserción para ver ejemplos.*/
+
+function uniteUnique(arr) {
+  const args = [...arguments];
+  const result = [];
+  for (let i = 0; i < args.length; i++) {
+    for (let j = 0; j < args[i].length; j++) {
+      if (!result.includes(args[i][j])) {
+        result.push(args[i][j]);
+      }
+    }
+  }
+  return result;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+/* -------------------------------------------------------------- */
+
+/* Convierta los caracteres &, <, >, "(comillas dobles) y '(apóstrofe) de una cadena en sus 
+entidades HTML correspondientes.*/
+
+/* -------------------------------------------------------------- */
+
 /* Utilice la palabra clave delete para eliminar las claves oranges.*/
 
 /* -------------------------------------------------------------- */
