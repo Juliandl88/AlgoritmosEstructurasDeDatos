@@ -245,9 +245,47 @@ uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
 /* Convierta los caracteres &, <, >, "(comillas dobles) y '(apóstrofe) de una cadena en sus 
 entidades HTML correspondientes.*/
 
+function convertHTML(str) {
+  // Split by character to avoid problems.
+
+  var temp = str.split("");
+
+  // Since we are only checking for a few HTML elements, use a switch
+
+  for (var i = 0; i < temp.length; i++) {
+    switch (temp[i]) {
+      case "<":
+        temp[i] = "&lt;";
+        break;
+      case "&":
+        temp[i] = "&amp;";
+        break;
+      case ">":
+        temp[i] = "&gt;";
+        break;
+      case '"':
+        temp[i] = "&quot;";
+        break;
+      case "'":
+        temp[i] = "&apos;";
+        break;
+    }
+  }
+
+  temp = temp.join("");
+  return temp;
+}
+
+//test here
+convertHTML("Dolce & Gabbana");
+
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Dado un entero positivo num, devuelve la suma de todos los números impares de Fibonacci que son menores o iguales que num.
+
+Los primeros dos números en la secuencia de Fibonacci son 1 y 1. Cada número adicional en la secuencia es la suma de los dos números anteriores. Los primeros seis números de la sucesión de Fibonacci son 1, 1, 2, 3, 5 y 8.
+
+Por ejemplo, sumFibs(10)debe volver 10porque todos los números impares de Fibonacci menores o iguales que 10son 1, 1, 3 y 5.*/
 
 /* -------------------------------------------------------------- */
 
