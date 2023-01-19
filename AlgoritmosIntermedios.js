@@ -287,9 +287,27 @@ Los primeros dos números en la secuencia de Fibonacci son 1 y 1. Cada número a
 
 Por ejemplo, sumFibs(10)debe volver 10porque todos los números impares de Fibonacci menores o iguales que 10son 1, 1, 3 y 5.*/
 
+function sumFibs(num) {
+  let prevNumber = 0;
+  let currNumber = 1;
+  let result = 0;
+  while (currNumber <= num) {
+    if (currNumber % 2 !== 0) {
+      result += currNumber;
+    }
+    currNumber += prevNumber;
+    prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+// test here
+sumFibs(4);
+
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Reescribe sumPrimespara que devuelva la suma de todos los números primos que son menores o iguales que num.*/
 
 /* -------------------------------------------------------------- */
 
