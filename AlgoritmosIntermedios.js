@@ -309,6 +309,28 @@ sumFibs(4);
 
 /* Reescribe sumPrimespara que devuelva la suma de todos los números primos que son menores o iguales que num.*/
 
+function sumPrimes(num) {
+  // Helper function to check primality
+  function isPrime(num) {
+    const sqrt = Math.sqrt(num);
+    for (let i = 2; i <= sqrt; i++) {
+      if (num % i === 0)
+        return false;
+    }
+    return true;
+  }
+
+  // Check all numbers for primality
+  let sum = 0;
+  for (let i = 2; i <= num; i++) {
+    if (isPrime(i))
+      sum += i;
+  }
+  return sum;
+}
+
+sumPrimes(10);
+
 /* -------------------------------------------------------------- */
 
 /* Utilice la palabra clave delete para eliminar las claves oranges.*/
