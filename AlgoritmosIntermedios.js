@@ -373,15 +373,110 @@ smallestCommons([1, 5]);
 /* Dada la matriz arr, itere y elimine cada elemento comenzando desde el primer elemento (el índice 0) 
 hasta que la función funcregrese truecuando el elemento iterado pase a través de él.*/
 
+function dropElements(arr, func) {
+  while (arr.length > 0 && !func(arr[0])) {
+    arr.shift();
+  }
+  return arr;
+}
+
+// test here
+dropElements([1, 2, 3, 4], function(n) {
+  return n >= 3;
+});
 
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Aplane una matriz anidada. Debe tener en cuenta los diferentes niveles de anidamiento.*/
+
+function steamrollArray(arr) {
+  const flattenedArray = [];
+  // Loop over array contents
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Recursively flatten entries that are arrays
+      //  and push into the flattenedArray
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      // Copy contents that are not arrays
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
+
+// test here
+steamrollArray([1, [2], [3, [[4]]]]);
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* Devuelve una oración traducida al inglés de la cadena binaria pasada.*/
+
+function binaryAgent(str) {
+  let biString = str.split(" ");
+  let uniString = [];
+
+  /*using the radix (or base) parameter in parseInt, we can convert the binary
+      number to a decimal number while simultaneously converting to a char*/
+
+  for (var i = 0; i < biString.length; i++) {
+    uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+  }
+
+  // we then simply join the string
+  return uniString.join("");
+}
+
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+/* -------------------------------------------------------------- */
+
+/* Comprueba si el predicado (segundo argumento) es verdadero en todos los elementos de una colección (primer argumento).*/
+
+function truthCheck(collection, pre) {
+  // Create a counter to check how many are true.
+  let counter = 0;
+  // Check for each object
+  for (let c in collection) {
+    // If it is has property and value is truthy
+    if (collection[c].hasOwnProperty(pre) && Boolean(collection[c][pre])) {
+      counter++;
+    }
+  }
+  // Outside the loop, check to see if we got true for all of them and return true or false
+  return counter == collection.length;
+}
+
+truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "isBot");
+
+/* -------------------------------------------------------------- */
+
+/* Cree una función que sume dos argumentos. Si solo se proporciona un argumento, 
+devuelve una función que espera un argumento y devuelve la suma..*/
+
+function addTogether() {
+  const [first, second] = arguments;
+  if (typeof(first) !== "number")
+    return undefined;
+  if (arguments.length === 1)
+    return (second) => addTogether(first, second);
+  if (typeof(second) !== "number")
+    return undefined;
+  return first + second;
+}
+
+/* -------------------------------------------------------------- */
+
+/* Complete el constructor de objetos con los siguientes métodos a continuación:
+
+getFirstName()
+getLastName()
+getFullName()
+setFirstName(first)
+setLastName(last)
+setFullName(firstAndLast)*/
 
 /* -------------------------------------------------------------- */
 
