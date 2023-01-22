@@ -478,14 +478,66 @@ setFirstName(first)
 setLastName(last)
 setFullName(firstAndLast)*/
 
+const Person = function(firstAndLast) {
+  let fullName = firstAndLast;
+
+  this.getFirstName = function() {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function() {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function() {
+    return fullName;
+  };
+
+  this.setFirstName = function(name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function(name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function(name) {
+    fullName = name;
+  };
+};
+
+const bob = new Person("Bob Ross");
+console.log(bob.getFullName());
+
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
+/* De acuerdo con la Tercera Ley de Kepler, el período orbital T
+ de dos masas puntuales que orbitan entre sí en una órbita circular o elíptica es:
+
+T= 2 pia3m−−−√
+ 
+a
+ es el semieje mayor de la órbita
+μ =GRAMOMETRO
+  es el parámetro gravitacional estándar
+GRAMO
+  es la constante gravitacional,
+METRO
+  es la masa del cuerpo más masivo.
+Devuelve una nueva matriz que transforma la altitud promedio de los elementos en sus períodos orbitales (en segundos).*/
+
+function orbitalPeriod(arr) {
+  const GM = 398600.4418;
+  const earthRadius = 6367.4447;
+  return arr.map(({ name, avgAlt }) => {
+    const earth = earthRadius + avgAlt;
+    const orbitalPeriod = Math.round(2 * Math.PI * Math.sqrt(Math.pow(earth, 3)/GM));
+    return { name, orbitalPeriod };
+  });
+}
+
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
 
 /* -------------------------------------------------------------- */
 
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
 
-/* -------------------------------------------------------------- */
-
-/* Utilice la palabra clave delete para eliminar las claves oranges.*/
