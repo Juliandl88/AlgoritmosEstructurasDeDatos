@@ -159,8 +159,9 @@ let userActivity = {
   }
   
   console.log(getArrayOfUsers(users));
+console.log("hello world")
 
-  /* -------------------------------------------------------------- */
+  /* ----------------FIN------------------------------------------- */
 
    /* El userobjeto contiene tres llaves. La dataclave contiene cinco claves, 
    una de las cuales contiene una matriz de friends. A partir de esto, puede ver cuán flexibles 
